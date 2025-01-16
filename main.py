@@ -168,10 +168,40 @@ contractType.send_keys("Legal")
 # )
 # date_to_select.click()
 
-
 contractDescription = driver.find_element(By.ID,"contractDescription")
 contractDescription.clear()
 contractDescription.send_keys("If I let Rishabh kill me everytime in valorant on sunday, then he will give me job")
+
+calendar_button = wait.until(EC.element_to_be_clickable(
+    (By.XPATH, "//button[.//span[contains(text(), 'Pick a date')]]"))
+)
+calendar_button.click()
+
+month_dropdown_button = wait.until(EC.element_to_be_clickable(
+        (By.XPATH, "//button[@role='combobox' and .//span[contains(text(), 'December')]]")
+    ))
+month_dropdown_button.click()
+
+december_option = driver.find_element(By.XPATH, "//span[text()='December']")
+december_option.click()
+
+year_dropdown_button = wait.until(EC.element_to_be_clickable(
+        (By.XPATH, "//button[@role='combobox' and .//span[contains(text(), '2024')]]")
+    ))
+year_dropdown_button.click()
+
+year_option = driver.find_element(By.XPATH, "//span[text()='2024']")
+year_option.click()
+
+# Step 3: Wait for the calendar popup to open
+# wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@role='dialog']")))
+
+# # Step 4: Select the desired date (for example, December 3rd, 2024)
+# date_to_select = wait.until(EC.element_to_be_clickable(
+#     (By.XPATH, "//button[@aria-label='Go to December 3, 2024']"))
+# )
+# date_to_select.click()
+
 
 time.sleep(5)
 driver.close()
