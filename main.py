@@ -1,30 +1,25 @@
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import pyperclip
 
 
 
 
 driver = webdriver.Chrome()
 driver.get("https://outriskai.com/login")
-# assert "outrisk" in driver.title
 
-# termsCheckbox = driver.find_element(By.ID, "agreeToTerms")
-# termsCheckbox.click()
 wait = WebDriverWait(driver, 10)
-
-# cookiesAcceptButton = wait.until(EC.element_to_be_clickable(By.ID,''))
 
 accept_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Accept')]")))
 accept_button.click()
 
 # time.sleep(3)
 
-# Now wait for the 'Agree to Terms' button to be clickable (if needed)
 terms_button = wait.until(EC.element_to_be_clickable((By.ID, 'agreeToTerms')))
 terms_button.click()
 
@@ -32,7 +27,7 @@ terms_button.click()
 userName = driver.find_element(By.ID,"email")
 userName.clear()
 userName.send_keys("outriskairpa@gmail.com")
-# userName.send_keys(Keys.RETURN)
+
 
 signInPassword = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Sign In with Password')]")))
 signInPassword.click()
@@ -42,7 +37,6 @@ signInPassword.click()
 password = driver.find_element(By.ID,"password")
 password.clear()
 password.send_keys("hVZB1WGTWZCsxu")
-# password.send_keys(Keys.RETURN)
 signInPassword = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Sign In with Password')]")))
 signInPassword.click()
 
@@ -71,13 +65,13 @@ country_dropdown_button = wait.until(EC.element_to_be_clickable(
         (By.XPATH, "//button[@role='combobox' and .//span[contains(text(), 'Country')]]")
     ))
 country_dropdown_button.click()
-# wait.until(EC.visibility_of_element_located((By.XPATH, "//span[text()='India']")))
+
 india_option = driver.find_element(By.XPATH, "//span[text()='India']")
 india_option.click()
 
 state_dropdown_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@role='combobox' and .//span[contains(text(), 'State')]]")))
 state_dropdown_button.click()
-# wait.until(EC.visibility_of_element_located((By.XPATH, "//span[text()='India']")))
+
 bihar_option = driver.find_element(By.XPATH, "//span[text()='Bihar']")
 bihar_option.click()
 
@@ -93,7 +87,7 @@ status_dropdown_button = wait.until(EC.element_to_be_clickable(
         (By.XPATH, "//button[@role='combobox' and .//span[contains(text(), 'status')]]")
     ))
 status_dropdown_button.click()
-# wait.until(EC.visibility_of_element_located((By.XPATH, "//span[text()='India']")))
+
 pending_option = driver.find_element(By.XPATH, "//span[text()='Pending']")
 pending_option.click()
 
@@ -105,103 +99,61 @@ contractType = driver.find_element(By.ID,"contractType")
 contractType.clear()
 contractType.send_keys("Legal")
 
-# calendar_button = wait.until(EC.element_to_be_clickable(
-#         (By.XPATH, "//button[@aria-haspopup='dialog' and .//svg[@class='lucide lucide-calendar']]"))
-#     )
-# calendar_button.click()
-
-#     # Step 8: Wait for the calendar popup to load (adjust if necessary)
-# wait.until(EC.visibility_of_element_located((By.XPATH, "//button[@aria-expanded='true']")))
-
-#     # Step 9: Select the desired date (December 3rd, 2024)
-# print("Selecting 'December 3rd, 2024'...")
-# date_to_select = wait.until(EC.element_to_be_clickable(
-#     (By.XPATH, "//button[@aria-label='Go to December 3, 2024']"))
-#     )
-# date_to_select.click()
-
-
-
-
-
-# calendar_button = wait.until(EC.element_to_be_clickable(
-#     (By.XPATH, "//button[@aria-haspopup='dialog' and .//svg[@class='lucide lucide-calendar']]"))
-# )
-# calendar_button.click()
-
-#     # Step 8: Wait for the calendar popup to open and confirm it's expanded
-# print("Waiting for the calendar popup to open...")
-# wait.until(EC.visibility_of_element_located((By.XPATH, "//button[@aria-expanded='true']")))
-
-#     # Step 9: Select the desired date (December 3rd, 2024)
-#     # We can first navigate to the correct month (December 2024), if necessary.
-#     # Check if the month is already December 2024, or we need to click the month navigation buttons
-
-#     # Open the month selector and navigate to December 2024
-# print("Navigating to December 2024...")
-# month_selector = wait.until(EC.element_to_be_clickable(
-#     (By.XPATH, "//button[@aria-label='Select month']"))
-# )
-# month_selector.click()
-
-#     # Select December from the month selector (adjust if necessary based on the calendar's structure)
-# december_button = wait.until(EC.element_to_be_clickable(
-#     (By.XPATH, "//span[text()='December']"))
-# )
-# december_button.click()
-
-#     # Select the year (2024)
-# year_selector = wait.until(EC.element_to_be_clickable(
-#     (By.XPATH, "//button[@aria-label='Select year']"))
-# )
-# year_selector.click()
-
-# year_2024 = wait.until(EC.element_to_be_clickable(
-#     (By.XPATH, "//span[text()='2024']"))
-# )
-# year_2024.click()
-
-#     # Now, select December 3rd, 2024
-# print("Selecting December 3rd, 2024...")
-# date_to_select = wait.until(EC.element_to_be_clickable(
-#     (By.XPATH, "//button[@aria-label='Go to December 3, 2024']"))
-# )
-# date_to_select.click()
-
 contractDescription = driver.find_element(By.ID,"contractDescription")
 contractDescription.clear()
 contractDescription.send_keys("If I let Rishabh kill me everytime in valorant on sunday, then he will give me job")
 
-calendar_button = wait.until(EC.element_to_be_clickable(
-    (By.XPATH, "//button[.//span[contains(text(), 'Pick a date')]]"))
+
+date_value = "2024-11-01"  # Example: "2024-12-01"
+parsed_date = datetime.strptime(date_value, "%Y-%m-%d")
+desired_year = parsed_date.year
+desired_month = parsed_date.strftime("%B") 
+desired_day = parsed_date.day
+
+date_picker_elements = driver.find_element(By.CSS_SELECTOR, "svg.lucide-calendar")
+date_picker_elements.click()
+    
+time.sleep(1)
+
+day_button = WebDriverWait(driver, 1).until(
+    EC.presence_of_element_located((By.XPATH, f"//div[@id='radix-:re:']//table//button[text()='{desired_day}']"))
 )
-calendar_button.click()
+day_button.click()
 
-month_dropdown_button = wait.until(EC.element_to_be_clickable(
-        (By.XPATH, "//button[@role='combobox' and .//span[contains(text(), 'December')]]")
-    ))
-month_dropdown_button.click()
+generateButton = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Generate')]")))
+generateButton.click()
 
-december_option = driver.find_element(By.XPATH, "//span[text()='December']")
-december_option.click()
+time.sleep(10)
 
-year_dropdown_button = wait.until(EC.element_to_be_clickable(
-        (By.XPATH, "//button[@role='combobox' and .//span[contains(text(), '2024')]]")
-    ))
-year_dropdown_button.click()
+unlockButton = driver.find_element(By.CLASS_NAME, "lucide-unlock-keyhole")
+unlockButton.click()
 
-year_option = driver.find_element(By.XPATH, "//span[text()='2024']")
-year_option.click()
+time.sleep(3)
 
-# Step 3: Wait for the calendar popup to open
-# wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@role='dialog']")))
-
-# # Step 4: Select the desired date (for example, December 3rd, 2024)
-# date_to_select = wait.until(EC.element_to_be_clickable(
-#     (By.XPATH, "//button[@aria-label='Go to December 3, 2024']"))
-# )
-# date_to_select.click()
-
+editable_element = driver.find_element(By.CLASS_NAME, 'bn-block-outer')
+editable_element.send_keys("Hello World")
 
 time.sleep(5)
+
+downloadButton = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Download')]")))
+downloadButton.click()
+
+shareButton = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Share')]")))
+shareButton.click()
+
+time.sleep(3)
+
+urlShare = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH,"//button[contains(text(), 'Share') and following-sibling::button[contains(text(), 'Close')]]")))
+urlShare.click()
+
+time.sleep(3)
+
+copy = driver.find_element(By.CLASS_NAME, "lucide-copy")
+copy.click()
+
+url = pyperclip.paste()
+print(url)
+
+time.sleep(5)
+
 driver.close()
