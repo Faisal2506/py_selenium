@@ -26,47 +26,52 @@ This project requires the following Python packages:
 
 ```bash
 pip install -r requirements.txt
-
+```
 ### Run the script
 ```bash
 python main.py
-
+```
 
 ## Setup Instructions
 
 ## Step 1: Clone the Repository
 
-### To start working with this project, first clone the repository to your local machine. Open your terminal and run the following command:
+- #### To start working with this project, first clone the repository to your local machine. Open your terminal and run the following command:
 
-### git clone https://github.com/yourusername/repositoryname.git
-### Replace yourusername/repositoryname with the actual path to the repository if you're cloning from a remote source like GitHub.
+- #### git clone https://github.com/yourusername/repositoryname.git
+- #### Replace yourusername/repositoryname with the actual path to the repository if you're cloning from a remote source like GitHub.
 
 
 ## Step 2: Install Dependencies
 
-### After cloning the repository, navigate to the project directory:
+- #### After cloning the repository, navigate to the project directory:
 
-### cd repositoryname
+```bash
+cd repositoryname
+```
 
-### Now, install the necessary Python dependencies listed in requirements.txt:
+- #### Now, install the necessary Python dependencies listed in requirements.txt:
 
-### pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
 ## Step 3: Configure the config.py File
 
-### In the config.py file, update the following fields:
+- #### In the config.py file, update the following fields:
 
-### USERNAME: Enter your login username for the website.
-### PASSWORD: Enter your login password for the website.
-### CONTRACT_DATE: Set the desired contract date in the format YYYY-MM-DD (e.g., 2024-12-01).
-### TITLE: Set the title for the contract (e.g., "Job offer").
-### PROMISOR: Set the name of the promisor (e.g., "Rishabh").
-### PROMISEE: Set the name of the promisee (e.g., "Faisal").
+- #### USERNAME: Enter your login username for the website.
+- #### PASSWORD: Enter your login password for the website.
+- #### CONTRACT_DATE: Set the desired contract date in the format YYYY-MM-DD (e.g., 2024-12-01).
+- #### TITLE: Set the title for the contract (e.g., "Job offer").
+- #### PROMISOR: Set the name of the promisor (e.g., "Rishabh").
+- #### PROMISEE: Set the name of the promisee (e.g., "Faisal").
 
 
 
 ## Step 4: Run the Script
 
-### Once you have cloned the repository, installed dependencies, and configured config.py, you can run the automation script:
-
-### python main.py
+- #### Once you have cloned the repository, installed dependencies, and configured config.py, you can run the automation script:
+```bash
+python main.py
+```
