@@ -38,7 +38,7 @@ python main.py
 
 - #### To start working with this project, first clone the repository to your local machine. Open your terminal and run the following command:
 
-- #### git clone https://github.com/yourusername/repositoryname.git
+- #### git clone https://github.com/Faisal2506/py_selenium.git
 - #### Replace yourusername/repositoryname with the actual path to the repository if you're cloning from a remote source like GitHub.
 
 
@@ -47,7 +47,7 @@ python main.py
 - #### After cloning the repository, navigate to the project directory:
 
 ```bash
-cd repositoryname
+cd py_selenium
 ```
 
 - #### Now, install the necessary Python dependencies listed in requirements.txt:
