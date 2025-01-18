@@ -6,12 +6,12 @@ import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import pyperclip
+import config
 
 
-
-
+URL = config.URL
 driver = webdriver.Chrome()
-driver.get("https://outriskai.com/login")
+driver.get(URL)
 
 wait = WebDriverWait(driver, 10)
 
@@ -23,20 +23,20 @@ accept_button.click()
 terms_button = wait.until(EC.element_to_be_clickable((By.ID, 'agreeToTerms')))
 terms_button.click()
 
-
+USERNAME = config.USERNAME
 userName = driver.find_element(By.ID,"email")
 userName.clear()
-userName.send_keys("outriskairpa@gmail.com")
+userName.send_keys(USERNAME)
 
 
 signInPassword = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Sign In with Password')]")))
 signInPassword.click()
 
-# time.sleep(3)
 
+PASSWORD = config.PASSWORD
 password = driver.find_element(By.ID,"password")
 password.clear()
-password.send_keys("hVZB1WGTWZCsxu")
+password.send_keys(PASSWORD)
 signInPassword = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Sign In with Password')]")))
 signInPassword.click()
 
@@ -48,18 +48,20 @@ contract_button.click()
 
 time.sleep(2)
 
+TITLE = config.TITLE
 contractTitle = driver.find_element(By.ID,"title")
 contractTitle.clear()
-contractTitle.send_keys("Job offer")
+contractTitle.send_keys(TITLE)
 
+PROMISOR = config.PROMISOR
 promisor = driver.find_element(By.NAME,"promisor")
 promisor.clear()
-promisor.send_keys("Rishabh")
+promisor.send_keys(PROMISOR)
 
-
-promisor = driver.find_element(By.NAME,"promisee")
-promisor.clear()
-promisor.send_keys("Faisal")
+PROMISEE = config.PROMISEE
+promisee = driver.find_element(By.NAME,"promisee")
+promisee.clear()
+promisee.send_keys(PROMISEE)
 
 country_dropdown_button = wait.until(EC.element_to_be_clickable(
         (By.XPATH, "//button[@role='combobox' and .//span[contains(text(), 'Country')]]")
@@ -104,7 +106,7 @@ contractDescription.clear()
 contractDescription.send_keys("If I let Rishabh kill me everytime in valorant on sunday, then he will give me job")
 
 
-date_value = "2024-11-01"  # Example: "2024-12-01"
+date_value = config.CONTRACT_DATE  # Example: "2024-12-01"
 parsed_date = datetime.strptime(date_value, "%Y-%m-%d")
 desired_year = parsed_date.year
 desired_month = parsed_date.strftime("%B") 
